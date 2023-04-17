@@ -1,0 +1,31 @@
+nav{
+    height: 50px;
+    border: 1px solid plum;
+    background-color: palevioletred;
+    margin-bottom: 50px;
+}
+
+.div-header{
+    width: 95%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100%;
+}
+
+.div-header div {
+    margin: 0 10px;
+    
+  }
+  
+  .div-header div a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  .div-header div a:hover {
+    color: #f1f1f1;
+  }

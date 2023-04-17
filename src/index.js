@@ -1,17 +1,38 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { RouterProvider, createHashRouter} from "react-router-dom"
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import Index from './routes/Index';
+import PokemonDetailed from './routes/PokemonDetails';
+import About from './routes/About';
+import Header from './components/Header';
+import Root from './routes/Root';
+
+const router = createHashRouter([
+  {
+      path: "/",
+      element: <Root/>,
+      children: [
+        {
+          path: "/",
+          element: <Index />,
+      },
+      {
+          path: "/about",
+          element: <About />,
+      },
+      {
+        path: "/pokemon/:id",
+        element: <PokemonDetailed />,
+      }
+  ],
+  },
+]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={router}/>
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
